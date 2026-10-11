@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react'
 import { HeroActions } from '../components/ui/HeroActions'
 
 export function Hero() {
@@ -43,6 +44,18 @@ export function Hero() {
           <p className="hero-description mt-6 font-sans text-[clamp(1rem,0.92rem+0.25vw,1.25rem)] leading-relaxed text-white">
             Experienced in designing and engineering scalable, AI-powered software applications.
           </p>
+          <a
+            href="#projects"
+            className="hero-explore group mt-4 inline-flex min-h-11 items-center gap-1.5 text-sm tracking-wide text-white underline-offset-4 transition duration-200 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-accent motion-reduce:transition-none"
+          >
+            Explore Projects
+            <ArrowUpRight
+              aria-hidden="true"
+              size={16}
+              strokeWidth={1.75}
+              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-none"
+            />
+          </a>
           <HeroActions />
         </div>
       </div>

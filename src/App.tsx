@@ -13,7 +13,7 @@ function App() {
   return (
     <SiteLayout>
       {/* Temporary theme controls; replaced in Milestone 6 */}
-      <div className="fixed right-4 bottom-4 z-30 rounded-xl border border-border bg-surface p-3 shadow-lg">
+      <div className="fixed bottom-4 left-4 z-30 rounded-xl border border-border bg-surface p-3 shadow-lg lg:right-4 lg:left-auto">
         <label
           htmlFor="theme-select"
           className="mb-2 block text-xs text-muted"

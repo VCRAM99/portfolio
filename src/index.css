@@ -71,6 +71,7 @@ a {
 }
 
 :root[data-theme="light"] .hero-description,
+:root[data-theme="light"] .hero-explore,
 :root[data-theme="light"] .hero-actions {
   color: #151515;
 }

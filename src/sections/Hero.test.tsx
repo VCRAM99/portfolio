@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { Hero } from './Hero'
 
@@ -36,6 +37,23 @@ describe('Hero', () => {
     expect(image).toHaveAttribute('fetchpriority', 'high')
     expect(picture?.closest('[aria-hidden="true"]')).not.toBeNull()
     expect(picture?.parentElement).toHaveClass('hero-aurora')
+  })
+
+  it('links to the projects section without replacing the hero actions', async () => {
+    const user = userEvent.setup()
+    render(<Hero />)
+
+    const explore = screen.getByRole('link', { name: 'Explore Projects' })
+
+    expect(explore.tagName).toBe('A')
+    expect(explore).toHaveAttribute('href', '#projects')
+    expect(screen.getByRole('link', { name: 'GitHub' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'LinkedIn' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Resume' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Email' })).toBeInTheDocument()
+
+    await user.tab()
+    expect(explore).toHaveFocus()
   })
 
   it('sets the name in serif and the headline in sans', () => {

@@ -91,7 +91,7 @@ export function HeroActions() {
         : ''
 
   return (
-    <div className="hero-actions relative mt-8 text-white">
+    <div className="hero-actions relative mt-5 text-white">
       <ul className="flex flex-wrap items-center gap-x-6 gap-y-1">
         <li>
           <a
