@@ -4,6 +4,8 @@ import { SectionPlaceholder } from '../components/layout/SectionPlaceholder'
 export function FeaturedProject() {
   return (
     <SectionPlaceholder
+      as="div"
+      headingLevel="h3"
       id="featured"
       eyebrow="03 / Featured Project"
       title="Adaptive Chess Trainer."

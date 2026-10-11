@@ -4,6 +4,8 @@ type SectionPlaceholderProps = {
     eyebrow: string
     title: string
     description: string
+    as?: 'section' | 'div'
+    headingLevel?: 'h2' | 'h3'
   }
   
   export function SectionPlaceholder({
@@ -11,9 +13,11 @@ type SectionPlaceholderProps = {
     eyebrow,
     title,
     description,
+    as: Element = 'section',
+    headingLevel: Heading = 'h2',
   }: SectionPlaceholderProps) {
     return (
-      <section
+      <Element
         id={id}
         aria-labelledby={`${id}-heading`}
         className="flex min-h-screen items-center border-b border-border px-6 py-24 md:px-16"
@@ -23,18 +27,18 @@ type SectionPlaceholderProps = {
             {eyebrow}
           </p>
   
-          <h2
+          <Heading
             id={`${id}-heading`}
             className="font-serif text-5xl md:text-7xl"
           >
             {title}
-          </h2>
+          </Heading>
   
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
             {description}
           </p>
         </div>
-      </section>
+      </Element>
     )
   }
   

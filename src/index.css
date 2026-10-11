@@ -69,3 +69,123 @@ a {
   background: var(--accent);
   color: var(--background);
 }
+
+:root[data-theme="light"] .hero-description,
+:root[data-theme="light"] .hero-actions {
+  color: #151515;
+}
+
+/* Hero northern lights background */
+
+@keyframes hero-aurora-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+
+  to {
+    transform: translate3d(-1.6%, 0, 0) scale(1.04);
+  }
+}
+
+.hero-aurora {
+  transform-origin: center center;
+  animation-name: hero-aurora-drift;
+  animation-duration: 40s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+}
+
+/* The 2:1 plate is wider than 16:9 and 4:3, so cover trims the sides.
+   Bias right to keep the aurora and the horizon. */
+@media (min-width: 768px) {
+  .hero-aurora img {
+    object-position: 72% center;
+  }
+}
+
+/* Wider than the plate: cover trims height, so hold the horizon and water. */
+@media (min-width: 768px) and (min-aspect-ratio: 2/1) {
+  .hero-aurora img {
+    object-position: center 70%;
+  }
+}
+
+.hero-aurora-shade {
+  background: linear-gradient(
+    90deg,
+    rgb(12 12 14 / 0.42) 0%,
+    rgb(12 12 14 / 0.18) 24%,
+    transparent 52%
+  );
+}
+
+:root[data-theme="light"] .hero-aurora-shade {
+  background: linear-gradient(
+    90deg,
+    rgb(247 247 246 / 0.92) 0%,
+    rgb(247 247 246 / 0.8) 18%,
+    rgb(247 247 246 / 0.58) 36%,
+    rgb(247 247 246 / 0.28) 56%,
+    rgb(247 247 246 / 0.08) 74%,
+    transparent 90%
+  );
+}
+
+@media (max-width: 1023px) {
+  :root[data-theme="light"] .hero-aurora-shade {
+    background: linear-gradient(
+      90deg,
+      rgb(247 247 246 / 0.94) 0%,
+      rgb(247 247 246 / 0.82) 22%,
+      rgb(247 247 246 / 0.55) 44%,
+      rgb(247 247 246 / 0.22) 66%,
+      transparent 88%
+    );
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-aurora-shade {
+    background: linear-gradient(
+      to bottom,
+      rgb(12 12 14 / 0.08) 0%,
+      rgb(12 12 14 / 0.16) 22%,
+      rgb(12 12 14 / 0.62) 40%,
+      rgb(12 12 14 / 0.68) 68%,
+      rgb(12 12 14 / 0.28) 100%
+    );
+  }
+
+  :root[data-theme="light"] .hero-aurora-shade {
+    background: linear-gradient(
+      to bottom,
+      rgb(247 247 246 / 0.12) 0%,
+      rgb(247 247 246 / 0.38) 24%,
+      rgb(247 247 246 / 0.88) 42%,
+      rgb(247 247 246 / 0.9) 70%,
+      rgb(247 247 246 / 0.55) 100%
+    );
+  }
+}
+
+/* From the small-tablet step through just below lg, the aurora crosses the type. */
+@media (min-width: 640px) and (max-width: 1023px) {
+  :root[data-theme="dark"] .hero-aurora-shade {
+    background: radial-gradient(
+      ellipse 92% 38% at 38% 48%,
+      rgb(12 12 14 / 0.78) 0%,
+      rgb(12 12 14 / 0.58) 46%,
+      rgb(12 12 14 / 0.24) 72%,
+      transparent 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora {
+    animation: none;
+    transform: none;
+  }
+}
