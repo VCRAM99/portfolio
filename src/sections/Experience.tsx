@@ -44,7 +44,7 @@ export function Experience() {
     >
       <div className="mx-auto w-full max-w-6xl">
         <p className="mb-5 text-xs font-medium tracking-[0.25em] text-muted uppercase">
-          02 / Experience
+          Experience
         </p>
 
         <h2 id="experience-heading" className="font-serif text-5xl md:text-7xl">

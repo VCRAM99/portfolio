@@ -1,7 +1,7 @@
 
 type SectionPlaceholderProps = {
     id: string
-    eyebrow: string
+    eyebrow?: string
     title: string
     description: string
     as?: 'section' | 'div'
@@ -23,9 +23,11 @@ type SectionPlaceholderProps = {
         className="flex min-h-screen items-center border-b border-border px-6 py-24 md:px-16"
       >
         <div className="mx-auto w-full max-w-6xl">
-          <p className="mb-5 text-xs font-medium tracking-[0.25em] text-muted uppercase">
-            {eyebrow}
-          </p>
+          {eyebrow ? (
+            <p className="mb-5 text-xs font-medium tracking-[0.25em] text-muted uppercase">
+              {eyebrow}
+            </p>
+          ) : null}
   
           <Heading
             id={`${id}-heading`}
