@@ -2,10 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
+
+    <meta
+      name="description"
+      content="Portfolio of Varun Ramanathan, a software engineer specializing in scalable, AI-powered applications."
+    />
+
+    <meta name="theme-color" content="#0c0c0e" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>Varun Ramanathan | Software Engineer</title>
+
+    <script>
+      ;(() => {
+        let preference = 'system'
+
+        try {
+          const stored = localStorage.getItem('portfolio-theme')
+
+          if (['system', 'light', 'dark'].includes(stored)) {
+            preference = stored
+          }
+        } catch {
+          // Storage may be unavailable.
+        }
+
+        const systemTheme = window.matchMedia(
+          '(prefers-color-scheme: dark)'
+        ).matches
+          ? 'dark'
+          : 'light'
+
+        document.documentElement.dataset.theme =
+          preference === 'system' ? systemTheme : preference
+      })()
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
