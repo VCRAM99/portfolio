@@ -22,9 +22,8 @@ describe('featuredProject', () => {
   })
 
   it('points at the live app and repository', () => {
-    expect(featuredProject.liveUrl).toBe(
-      'https://adaptive-chess-trainer.vercel.app/chesstrainer/app/',
-    )
+    expect(featuredProject.discoverUrl).toBe('https://chess.varunsr.com/discover')
+    expect(featuredProject.liveUrl).toBe('https://chess.varunsr.com/app')
     expect(featuredProject.repositoryUrl).toBe(
       'https://github.com/VCRAM99/adaptive-chess-trainer',
     )

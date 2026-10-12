@@ -56,13 +56,15 @@ describe('Projects', () => {
     expect(custom).toHaveAttribute('aria-expanded', 'false')
   })
 
-  it('links to the live app and the gallery anchor', () => {
+  it('links Discover More and Try Me to the chess subdomain', () => {
     render(<Projects />)
 
     const discover = screen.getByRole('link', { name: 'Discover More' })
     const tryMe = screen.getByRole('link', { name: 'Try Me' })
 
-    expect(discover).toHaveAttribute('href', '#featured-project-gallery')
+    expect(discover).toHaveAttribute('href', 'https://chess.varunsr.com/discover')
+    expect(discover).toHaveAttribute('target', '_blank')
+    expect(discover).toHaveAttribute('rel', 'noopener noreferrer')
     expect(document.getElementById('featured-project-gallery')).toHaveClass('scroll-mt-24')
 
     expect(tryMe).toHaveAttribute('href', featuredProject.liveUrl)

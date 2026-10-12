@@ -16,6 +16,7 @@ export type FeaturedProject = {
   readonly description: string
   readonly highlights: readonly string[]
   readonly technologies: readonly string[]
+  readonly discoverUrl: string
   readonly liveUrl: string
   readonly repositoryUrl: string
   readonly gallery: readonly ProjectGalleryImage[]
@@ -46,7 +47,8 @@ export const featuredProject = {
     'Vitest',
     'Testing Library',
   ],
-  liveUrl: 'https://adaptive-chess-trainer.vercel.app/chesstrainer/app/',
+  discoverUrl: 'https://chess.varunsr.com/discover',
+  liveUrl: 'https://chess.varunsr.com/app',
   repositoryUrl: 'https://github.com/VCRAM99/adaptive-chess-trainer',
   gallery: [
     {

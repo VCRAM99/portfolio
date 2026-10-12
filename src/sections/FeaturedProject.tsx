@@ -33,7 +33,12 @@ export function FeaturedProject({ project = defaultProject }: FeaturedProjectPro
           <p className="mt-4 max-w-md text-base leading-relaxed text-muted">{project.description}</p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a href="#featured-project-gallery" className={`${actionClassName} border border-border text-foreground hover:border-foreground`}>
+            <a
+              href={project.discoverUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${actionClassName} border border-border text-foreground hover:border-foreground`}
+            >
               Discover More
             </a>
             <a
