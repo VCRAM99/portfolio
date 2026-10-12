@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { ExperienceAccordion } from '../components/experience/ExperienceAccordion'
 import { ExperienceCard } from '../components/experience/ExperienceCard'
 import { ExperienceDetails } from '../components/experience/ExperienceDetails'
+import { Reveal } from '../components/ui/Reveal'
 import { experience, type EmployerId } from '../data/experience'
 
 const desktopQuery = '(min-width: 1024px)'
@@ -40,35 +41,32 @@ export function Experience() {
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="scroll-mt-24 border-b border-border px-6 py-24 md:px-16"
+      className="section-chapter scroll-mt-24 px-6 py-16 md:px-16 lg:py-20"
     >
       <div className="mx-auto w-full max-w-6xl">
-        <p className="mb-5 text-xs font-medium tracking-[0.25em] text-muted uppercase">
-          Experience
-        </p>
-
-        <h2 id="experience-heading" className="font-serif text-5xl md:text-7xl">
-          Experience.
-        </h2>
-
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
-          A selection of professional engineering, machine learning, and research experience.
-        </p>
+        <Reveal group="experience">
+          <h2 id="experience-heading" className="font-serif text-5xl xl:text-6xl">
+            Experience.
+          </h2>
+        </Reveal>
 
         {isDesktop ? (
           <>
-            <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {experience.map((entry) => (
-                <ExperienceCard
-                  key={entry.id}
-                  entry={entry}
-                  selected={entry.id === selected.id}
-                  onSelect={setSelectedId}
-                />
+            <div className="mt-8 flex flex-wrap items-stretch justify-start gap-3 xl:mt-6">
+              {experience.map((entry, index) => (
+                <Reveal key={entry.id} group="experience" className="h-full w-fit" delayMs={index * 70}>
+                  <ExperienceCard
+                    entry={entry}
+                    selected={entry.id === selected.id}
+                    onSelect={setSelectedId}
+                  />
+                </Reveal>
               ))}
             </div>
 
-            <ExperienceDetails entry={selected} />
+            <Reveal group="experience" delayMs={180}>
+              <ExperienceDetails entry={selected} />
+            </Reveal>
           </>
         ) : (
           <ExperienceAccordion selectedId={selectedId} onToggle={toggleEmployer} />

@@ -49,6 +49,46 @@
 
 html {
   background: var(--background);
+  scroll-behavior: smooth;
+}
+
+/* The header is an overlay, so a chapter's border is the scroll boundary.
+   Padding inside the chapter clears that overlay. In-page targets such as the
+   project gallery keep their own scroll margin. */
+.section-chapter,
+#projects {
+  scroll-margin-top: 0;
+}
+
+/* Proximity snap only on large desktops. Tall sections stay freely scrollable.
+   The proximity distance is browser-defined and has no author-controlled radius. */
+@media (min-width: 80rem) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .section-chapter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100svh;
+    scroll-snap-align: start;
+    scroll-margin-top: 0;
+  }
+}
+
+.theme-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23a1a1aa' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 0.8rem;
+}
+
+:root[data-theme='light'] .theme-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23777777' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
 }
 
 body {
@@ -196,7 +236,43 @@ a {
   }
 }
 
+@keyframes detail-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Entrance reveals. Hidden only when motion is allowed, so reduced-motion and no-JS stay visible.
+   640ms × 1.15 = 736ms. Stagger delays are unchanged. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    transition:
+      opacity 736ms ease,
+      transform 736ms ease;
+  }
+
+  .reveal:not([data-revealed]):not(:focus-within) {
+    opacity: 0;
+    transform: translate3d(0, 0.625rem, 0);
+  }
+
+  .reveal:focus-within {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+
   .hero-aurora {
     animation: none;
     transform: none;

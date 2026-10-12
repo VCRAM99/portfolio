@@ -2,6 +2,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { FeatureHotspots } from '../components/projects/FeatureHotspots'
 import { ProjectGallery } from '../components/projects/ProjectGallery'
 import { ProjectStage } from '../components/projects/ProjectStage'
+import { Reveal } from '../components/ui/Reveal'
 import {
   featuredProject as defaultProject,
   featuredProjectDevices,
@@ -19,19 +20,19 @@ export function FeaturedProject({ project = defaultProject }: FeaturedProjectPro
   return (
     <article aria-labelledby="projects-heading">
       <div className="lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-x-14 xl:gap-x-20">
-        <div className="min-w-0 lg:col-start-1 lg:row-start-1">
+        <Reveal group="featured" className="min-w-0 lg:col-start-1 lg:row-start-1">
           <p className="text-xs font-medium tracking-[0.25em] text-muted uppercase">Featured Projects</p>
 
           <h2
             id="projects-heading"
-            className="mt-5 max-w-[12ch] font-serif text-[clamp(3.4rem,6.4vw,6.25rem)] leading-[0.9] tracking-tight text-balance"
+            className="mt-3 max-w-[12ch] font-serif text-[clamp(2.75rem,4.2vw,3.75rem)] leading-[0.92] tracking-tight text-balance"
           >
             {project.title}.
           </h2>
 
-          <p className="mt-6 max-w-md text-base leading-relaxed text-muted md:text-lg">{project.description}</p>
+          <p className="mt-4 max-w-md text-base leading-relaxed text-muted">{project.description}</p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <a href="#featured-project-gallery" className={`${actionClassName} border border-border text-foreground hover:border-foreground`}>
               Discover More
             </a>
@@ -45,15 +46,17 @@ export function FeaturedProject({ project = defaultProject }: FeaturedProjectPro
               <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.75} />
             </a>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="relative mt-12 min-w-0 [--stage-pad:6rem] lg:col-start-2 lg:row-start-1 lg:mt-0 min-[90rem]:pt-(--stage-pad) min-[90rem]:pb-16">
-          <ProjectStage laptop={featuredProjectDevices.laptop} phone={featuredProjectDevices.phone} />
-          <FeatureHotspots />
-        </div>
+        <Reveal group="featured" className="min-w-0 lg:col-start-2 lg:row-start-1" delayMs={80}>
+          <div className="relative mt-10 [--stage-pad:3.5rem] lg:mt-0 xl:mx-auto xl:max-w-[26rem] min-[90rem]:pt-(--stage-pad) min-[90rem]:pb-8">
+            <ProjectStage laptop={featuredProjectDevices.laptop} phone={featuredProjectDevices.phone} />
+            <FeatureHotspots />
+          </div>
+        </Reveal>
       </div>
 
-      <div className="mt-14 md:mt-20">
+      <div className="mt-8 xl:mt-10">
         <ProjectGallery gallery={project.gallery} />
       </div>
     </article>

@@ -53,6 +53,7 @@ export function EducationEntry({ entry }: EducationEntryProps) {
           height={dark ? entry.logo.darkHeight : entry.logo.lightHeight}
           draggable={false}
           decoding="async"
+          loading="lazy"
           className="absolute max-w-none object-contain"
           style={{
             width: `${100 / ink.w}%`,

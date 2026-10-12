@@ -37,8 +37,9 @@ export function ProjectStage({
                   alt=""
                   width={laptop.width}
                   height={laptop.height}
-                  sizes="(min-width: 1024px) 36rem, 100vw"
+                  sizes="(min-width: 1280px) 26rem, (min-width: 1024px) 32rem, 100vw"
                   decoding="async"
+                  loading="lazy"
                   className="h-auto w-full rounded-[0.7rem] sm:rounded-[0.85rem]"
                 />
               ) : (

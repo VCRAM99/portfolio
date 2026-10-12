@@ -1,12 +1,17 @@
 
 import type { ReactNode } from 'react'
+import { useActiveSection } from '../../hooks/useActiveSection'
+import { SectionPager } from '../navigation/SectionPager'
 import { SiteHeader } from '../navigation/SiteHeader'
+import { RevealGroups } from '../ui/RevealGroups'
 
 type SiteLayoutProps = {
   children: ReactNode
 }
 
 export function SiteLayout({ children }: SiteLayoutProps) {
+  const activeSection = useActiveSection()
+
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <a
@@ -16,7 +21,9 @@ export function SiteLayout({ children }: SiteLayoutProps) {
         Skip to content
       </a>
 
-      <SiteHeader />
+      <RevealGroups />
+      <SiteHeader activeSection={activeSection} />
+      <SectionPager activeSection={activeSection} />
 
       {children}
     </div>

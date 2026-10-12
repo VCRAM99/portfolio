@@ -6,7 +6,7 @@ export function Hero() {
     <section
       id="home"
       aria-labelledby="home-heading"
-      className="relative isolate min-h-[100svh] overflow-hidden border-b border-border"
+      className="relative isolate min-h-[100svh] overflow-hidden xl:snap-start"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden bg-background" aria-hidden="true">
         <div className="hero-aurora absolute -inset-x-[4%] -inset-y-[2%]">

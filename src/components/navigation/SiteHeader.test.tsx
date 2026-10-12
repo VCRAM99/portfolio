@@ -6,8 +6,17 @@ import { DesktopNavigation } from './DesktopNavigation'
 import { SiteHeader } from './SiteHeader'
 
 describe('SiteHeader', () => {
+  it('links the VR mark to the top of the page', () => {
+    render(<SiteHeader activeSection="home" />)
+
+    const brand = screen.getByRole('link', { name: 'Varun Ramanathan — Home' })
+
+    expect(brand).toHaveAttribute('href', '#home')
+    expect(brand).toHaveAttribute('aria-current', 'true')
+  })
+
   it('renders every section destination as an anchor', () => {
-    render(<SiteHeader />)
+    render(<SiteHeader activeSection="home" />)
 
     const primary = screen.getByRole('navigation', { name: 'Primary' })
     const links = within(primary).getAllByRole('link')
@@ -56,7 +65,7 @@ describe('SiteHeader', () => {
     const user = userEvent.setup()
     render(
       <>
-        <SiteHeader />
+        <SiteHeader activeSection="home" />
         <section id="contact">Contact</section>
       </>,
     )
@@ -89,7 +98,7 @@ describe('SiteHeader', () => {
 
   it('closes the mobile menu on Escape and restores focus to the button', async () => {
     const user = userEvent.setup()
-    render(<SiteHeader />)
+    render(<SiteHeader activeSection="home" />)
 
     await user.click(screen.getByRole('button', { name: 'Open menu' }))
     await user.keyboard('{Escape}')
@@ -102,7 +111,7 @@ describe('SiteHeader', () => {
 
   it('closes the mobile menu when clicking outside', async () => {
     const user = userEvent.setup()
-    render(<SiteHeader />)
+    render(<SiteHeader activeSection="home" />)
 
     await user.click(screen.getByRole('button', { name: 'Open menu' }))
     await user.click(document.body)

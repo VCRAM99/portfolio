@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react'
 import { ChevronDown } from 'lucide-react'
 import type { EmployerId, ExperienceEntry } from '../../data/experience'
 import { experience } from '../../data/experience'
+import { Reveal } from '../ui/Reveal'
 import { experienceAccent } from './accent'
 import { EmployerLogo } from './EmployerLogo'
 import { ExperienceDetailContent } from './ExperienceDetails'
@@ -14,13 +15,14 @@ type ExperienceAccordionProps = {
 export function ExperienceAccordion({ selectedId, onToggle }: ExperienceAccordionProps) {
   return (
     <div className="mt-12 flex flex-col gap-3">
-      {experience.map((entry) => (
-        <ExperienceAccordionItem
-          key={entry.id}
-          entry={entry}
-          expanded={entry.id === selectedId}
-          onToggle={onToggle}
-        />
+      {experience.map((entry, index) => (
+        <Reveal key={entry.id} group="experience" delayMs={index * 70}>
+          <ExperienceAccordionItem
+            entry={entry}
+            expanded={entry.id === selectedId}
+            onToggle={onToggle}
+          />
+        </Reveal>
       ))}
     </div>
   )

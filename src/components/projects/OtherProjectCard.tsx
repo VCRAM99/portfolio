@@ -29,23 +29,24 @@ export function OtherProjectCard({ project }: OtherProjectCardProps) {
   }, [])
 
   return (
-    <article className="flex h-full flex-col rounded-lg border border-border bg-background p-6 transition duration-200 hover:border-foreground hover:shadow-[0_18px_40px_-28px_rgb(0_0_0/0.45)] motion-reduce:transition-none sm:p-8">
+    <article className="flex h-full flex-col rounded-lg border border-border bg-background p-5 transition duration-200 hover:border-foreground hover:shadow-[0_18px_40px_-28px_rgb(0_0_0/0.45)] motion-reduce:transition-none sm:p-6">
       {image ? (
-        <div className="flex h-40 items-center justify-center sm:h-48">
+        <div className="flex h-28 items-center justify-center sm:h-32">
           <img
             src={theme === 'dark' ? image.darkSrc : image.lightSrc}
             alt={image.alt}
             width={image.width}
             height={image.height}
             decoding="async"
+            loading="lazy"
             className="h-full w-full object-contain"
           />
         </div>
       ) : null}
 
-      <h4 id={`${project.id}-title`} className="mt-8 font-serif text-4xl leading-none tracking-tight">
+      <h3 id={`${project.id}-title`} className="mt-5 font-serif text-3xl leading-none tracking-tight">
         {project.title}
-      </h4>
+      </h3>
       <p className="mt-3 text-xs font-medium tracking-[0.18em] text-muted uppercase">{project.category}</p>
       <div
         id={descriptionId}
@@ -62,7 +63,7 @@ export function OtherProjectCard({ project }: OtherProjectCardProps) {
         </div>
       </div>
 
-      <ul aria-label={`${project.title} technologies`} className="mt-6 flex flex-wrap gap-2">
+      <ul aria-label={`${project.title} technologies`} className="mt-4 flex flex-wrap gap-1.5">
         {project.technologies.map((technology) => (
           <li key={technology} className="rounded-full border border-border px-3 py-1 text-xs tracking-wide text-muted">
             {technology}
@@ -75,7 +76,7 @@ export function OtherProjectCard({ project }: OtherProjectCardProps) {
         aria-expanded={expanded}
         aria-controls={descriptionId}
         onClick={() => setExpanded((current) => !current)}
-        className="mt-6 inline-flex min-h-11 w-fit items-center gap-1.5 text-sm tracking-wide text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-accent"
+        className="mt-4 inline-flex min-h-11 w-fit items-center gap-1.5 text-sm tracking-wide text-foreground underline-offset-4 transition duration-200 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-accent motion-reduce:transition-none"
       >
         {expanded ? 'Show Less' : 'Read More'}
         <ChevronDown

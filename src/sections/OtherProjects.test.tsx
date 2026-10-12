@@ -23,7 +23,7 @@ describe('OtherProjects', () => {
 
     expect(section).toHaveAttribute('aria-labelledby', 'other-projects-heading')
     expect(section).toHaveClass('scroll-mt-24')
-    expect(screen.getByRole('heading', { level: 3, name: 'Other Projects.' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2, name: 'Other Projects.' })).toBeInTheDocument()
     expect(screen.getAllByRole('article')).toHaveLength(2)
     expect(new Set(otherProjects.map((project) => project.id)).size).toBe(2)
   })

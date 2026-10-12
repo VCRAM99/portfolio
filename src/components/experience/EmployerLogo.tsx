@@ -11,10 +11,10 @@ const logoFile: Record<EmployerId, string> = {
 
 const frame: Record<'card' | 'header', Record<EmployerId, string>> = {
   card: {
-    'td-bank': 'h-8 w-10',
-    quanto: 'h-8 w-10',
-    cibc: 'h-7 w-28',
-    mcmaster: 'h-10 w-36',
+    'td-bank': 'h-7 w-9',
+    quanto: 'h-7 w-9',
+    cibc: 'h-6 w-24',
+    mcmaster: 'h-8 w-28',
   },
   header: {
     'td-bank': 'h-8 w-8',
@@ -55,6 +55,8 @@ export function EmployerLogo({ id, variant }: EmployerLogoProps) {
       src={employerLogoSrc(id, theme)}
       alt=""
       draggable={false}
+      decoding="async"
+      loading="lazy"
       className={`${frame[variant][id]} max-w-full object-contain object-left`}
     />
   )

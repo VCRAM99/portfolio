@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useEffect, useRef, useState, type FocusEvent, type KeyboardEvent } from 'react'
 import type { ProjectGalleryImage } from '../../data/featuredProject'
+import { Reveal } from '../ui/Reveal'
 
 const gallerySlotCount = 5
 const captionFadeMs = 150
@@ -8,7 +9,7 @@ const lightboxOpenMs = 300
 const lightboxCloseMs = 250
 
 const controlClassName =
-  'inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition duration-200 hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-35 motion-reduce:transition-none'
+  'inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition duration-200 hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-35 motion-reduce:transition-none'
 
 type ProjectGalleryProps = {
   gallery: readonly ProjectGalleryImage[]
@@ -191,11 +192,12 @@ export function ProjectGallery({ gallery }: ProjectGalleryProps) {
           ))}
         </ol>
       ) : (
-        <div>
+        <>
+          <Reveal group="featured">
           <div className="flex items-end justify-between gap-4">
             <p
               id="featured-gallery-caption"
-              className={`min-h-[4.75rem] min-w-0 font-serif text-xl leading-tight text-balance transition-opacity duration-150 md:min-h-16 md:text-2xl motion-reduce:transition-none ${
+              className={`min-h-12 min-w-0 font-serif text-lg leading-tight text-balance transition-opacity duration-150 md:min-h-14 md:text-xl motion-reduce:transition-none ${
                 captionVisible ? 'opacity-100' : 'opacity-0'
               }`}
             >
@@ -230,7 +232,7 @@ export function ProjectGallery({ gallery }: ProjectGalleryProps) {
             onKeyDown={onStripKeyDown}
             onMouseLeave={() => setHoveredIndex(null)}
             onBlur={onStripBlur}
-            className="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-px-1 pb-1 [-ms-overflow-style:none] [scrollbar-width:thin] motion-reduce:scroll-auto"
+            className="mt-3 flex snap-x snap-mandatory gap-2.5 overflow-x-auto overscroll-x-contain scroll-px-1 pb-1 [-ms-overflow-style:none] [scrollbar-width:thin] motion-reduce:scroll-auto"
           >
             {images.map((image, imageIndex) => {
               const selected = imageIndex === index
@@ -253,7 +255,7 @@ export function ProjectGallery({ gallery }: ProjectGalleryProps) {
                   }}
                   onFocus={() => setFocusedIndex(imageIndex)}
                   onClick={() => openLightbox(imageIndex)}
-                  className="h-20 w-28 shrink-0 snap-start overflow-hidden rounded-md border border-border bg-surface p-1 transition-colors duration-200 hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-accent aria-[current=true]:border-foreground sm:h-24 sm:w-36 md:h-28 md:w-40 motion-reduce:transition-none"
+                  className="h-16 w-24 shrink-0 [scroll-snap-align:none_start] overflow-hidden rounded-md border border-border bg-surface p-1 transition-colors duration-200 hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-accent aria-[current=true]:border-foreground sm:h-[4.5rem] sm:w-32 md:h-[4.5rem] md:w-28 motion-reduce:transition-none"
                 >
                   <img
                     src={image.src}
@@ -270,6 +272,7 @@ export function ProjectGallery({ gallery }: ProjectGalleryProps) {
               )
             })}
           </div>
+          </Reveal>
 
           {lightboxVisible && active ? (
             <div
@@ -340,7 +343,7 @@ export function ProjectGallery({ gallery }: ProjectGalleryProps) {
               </div>
             </div>
           ) : null}
-        </div>
+        </>
       )}
     </div>
   )

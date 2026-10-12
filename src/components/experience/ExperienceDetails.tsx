@@ -56,7 +56,7 @@ export function ExperienceDetailContent({ entry }: ExperienceDetailsProps) {
 
       <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{entry.summary}</p>
 
-      <ul aria-label="Accomplishments" className="mt-5 space-y-2">
+      <ul aria-label="Accomplishments" className="mt-4 space-y-1.5">
         {accomplishments.map((achievement) => (
           <li key={achievement} className="flex gap-3 text-sm leading-relaxed text-foreground md:text-base">
             <span className="mt-[0.55em] h-px w-3 shrink-0 bg-border" aria-hidden="true" />
@@ -66,7 +66,7 @@ export function ExperienceDetailContent({ entry }: ExperienceDetailsProps) {
       </ul>
 
       {technologies.length > 0 ? (
-        <ul aria-label="Technologies" className="mt-6 flex flex-wrap gap-2">
+        <ul aria-label="Technologies" className="mt-4 flex flex-wrap gap-2">
           {technologies.map((technology) => (
             <li
               key={technology}
@@ -85,10 +85,12 @@ export function ExperienceDetails({ entry }: ExperienceDetailsProps) {
   return (
     <div
       id="experience-details"
-      className="mt-4 rounded-lg border border-border bg-surface px-6 py-6 lg:min-h-[25rem]"
+      className="mt-3 rounded-lg border border-border bg-surface px-5 py-4 xl:px-6 xl:py-5"
     >
-      <h3 className="font-serif text-3xl tracking-tight text-foreground md:text-4xl">{entry.name}</h3>
-      <ExperienceDetailContent entry={entry} />
+      <div key={entry.id} className="motion-safe:animate-[detail-fade_200ms_ease-out]">
+        <h3 className="font-serif text-2xl tracking-tight text-foreground xl:text-3xl">{entry.name}</h3>
+        <ExperienceDetailContent entry={entry} />
+      </div>
     </div>
   )
 }

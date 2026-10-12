@@ -9,8 +9,8 @@ export function ContactLinks() {
   const { copyEmail, copyMessage } = useCopyEmail()
 
   return (
-    <ul className="flex flex-col gap-4">
-      <li>
+    <ul className="flex flex-col gap-8">
+      <li className="relative">
         <button type="button" onClick={copyEmail} className={`${linkClassName} font-serif text-3xl leading-none tracking-tight md:text-4xl`}>
           {contact.email}
           <ArrowUpRight
@@ -20,7 +20,11 @@ export function ContactLinks() {
             className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:group-hover:translate-none"
           />
         </button>
-        <p className="mt-2 h-5 text-sm text-muted" role="status" aria-live="polite">
+        <p
+          className="pointer-events-none absolute top-[calc(100%+0.25rem)] left-0 h-5 text-sm text-muted"
+          role="status"
+          aria-live="polite"
+        >
           {copyMessage}
         </p>
       </li>
