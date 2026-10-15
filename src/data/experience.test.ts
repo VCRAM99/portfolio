@@ -6,14 +6,11 @@ describe('experience', () => {
     expect(experience.map((entry) => entry.id)).toEqual([...employerIds])
   })
 
-  it('keeps McMaster as one employer with two nested roles', () => {
+  it('keeps McMaster as one employer with one role', () => {
     const mcmaster = experience.find((entry) => entry.id === 'mcmaster')
 
     expect(mcmaster?.name).toBe('McMaster University')
-    expect(mcmaster?.roles.map((role) => role.title)).toEqual([
-      'Machine Learning Engineer',
-      'Data Analyst',
-    ])
+    expect(mcmaster?.roles.map((role) => role.title)).toEqual(['Machine Learning & Data Engineer'])
     expect(experience.filter((entry) => entry.name === 'McMaster University')).toHaveLength(1)
   })
 

@@ -34,19 +34,19 @@ export const experience = [
     dates: '2025 – Present',
     accent: 'green',
     summary:
-      'Developed Python automation and cloud-based data validation tools to improve enterprise data governance, reporting, and operational efficiency.',
+      'Built Python validation workflows and Azure data-quality pipelines, with TypeScript/React reporting and Power BI dashboards for stakeholders.',
     roles: [
       {
-        title: 'Business Management Specialist',
+        title: 'Data Analyst (EDMO)',
         dates: '2025 – Present',
         achievements: [
           'Reduced validation and processing time by over 90% through Python automation.',
-          'Built SQL validation solutions for Azure-hosted data supply chains.',
-          'Created interactive HTML reports and Power BI dashboards for stakeholders.',
+          'Built SQL enterprise data-quality pipelines hosted in Azure for supply chains.',
+          'Created TypeScript/React validation views and Power BI dashboards for stakeholders.',
         ],
       },
     ],
-    technologies: ['Python', 'SQL', 'Microsoft Azure', 'Power BI', 'HTML'],
+    technologies: ['Python', 'SQL', 'TypeScript', 'React', 'Microsoft Azure', 'Power BI'],
   },
   {
     id: 'quanto',
@@ -54,15 +54,15 @@ export const experience = [
     dates: '2024 – 2025',
     accent: 'blue',
     summary:
-      'Built AI-powered bookkeeping software spanning Python backend services, financial data pipelines, and responsive frontend experiences.',
+      'Built production AI bookkeeping software across Python services, language-model workflows, and customer-facing financial features.',
     roles: [
       {
         title: 'Machine Learning Engineer',
         dates: '2024 – 2025',
         achievements: [
-          'Integrated OpenAI and Google Gemini APIs for intelligent financial analysis.',
-          'Developed Python backend services and real-time financial data pipelines.',
-          'Built Next.js frontend features and deployed applications with Vercel and Supabase.',
+          'Integrated OpenAI and Google Gemini APIs, Optimized LLM workflows to reduce token usage by over 60%.',
+          'Built retrieval workflows and human-in-the-loop review for bookkeeping agents.',
+          'Developed Python services, Next.js features, and pipelines on AWS and Supabase.',
         ],
       },
     ],
@@ -72,8 +72,9 @@ export const experience = [
       'JavaScript',
       'OpenAI API',
       'Google Gemini API',
-      'Vercel',
+      'AWS',
       'Supabase',
+      'Vercel',
     ],
   },
   {
@@ -82,19 +83,19 @@ export const experience = [
     dates: '2023 – 2024',
     accent: 'red',
     summary:
-      'Modernized enterprise banking applications through Java development, API engineering, cloud migration, and production support.',
+      'Modernized the Global Operations Workbench through Java 21 services, REST APIs, and an Azure migration.',
     roles: [
       {
-        title: 'Software Developer',
+        title: 'Full-Stack Developer',
         dates: '2023 – 2024',
         achievements: [
-          'Migrated legacy C++ and Java applications to Java 21.',
-          'Developed Java backend services and RESTful APIs for enterprise systems.',
-          'Implemented tests and supported cloud deployments, UAT, and production releases.',
+          'Migrated legacy C++ and Java components to Java 21.',
+          'Developed Java backend services and RESTful APIs for the operations workbench.',
+          'Added unit and integration tests and supported Azure migration, UAT, and production releases.',
         ],
       },
     ],
-    technologies: ['Java 21', 'C++', 'REST APIs'],
+    technologies: ['Java 21', 'C++', 'REST APIs', 'Microsoft Azure'],
   },
   {
     id: 'mcmaster',
@@ -102,33 +103,18 @@ export const experience = [
     dates: '2019 – 2021',
     accent: 'maroon',
     summary:
-      'Developed computer vision, embedded AI, and research software across two roles supporting academic and industry initiatives.',
+      'Applied computer vision and embedded machine learning to vehicle classification, traffic analysis, and research prototypes.',
     roles: [
       {
-        title: 'Machine Learning Engineer',
-        dates: '2020 – 2021',
+        title: 'Machine Learning & Data Engineer',
+        dates: '2019 – 2021',
         achievements: [
-          'Developed embedded AI applications using TensorFlow, OpenCV, and STM X-CUBE-AI.',
-          'Created educational machine learning software and demonstrations.',
-          'Built research visualization tools using Power BI.',
-        ],
-      },
-      {
-        title: 'Data Analyst',
-        dates: '2019 – 2020',
-        achievements: [
-          'Trained TensorFlow computer vision models achieving 95% vehicle classification accuracy.',
-          'Developed Python software to automate image labeling.',
-          'Built traffic analysis and network security prototypes.',
+          'Developed embedded AI with TensorFlow, OpenCV, and STM X-CUBE-AI.',
+          'Trained aerial-imagery models that classified vehicles at 95% accuracy.',
+          'Built Python image labeling and traffic analysis tools with Peel Regional Police.',
         ],
       },
     ],
-    technologies: [
-      'Python',
-      'TensorFlow',
-      'OpenCV',
-      'STM X-CUBE-AI',
-      'Power BI',
-    ],
+    technologies: ['Python', 'TensorFlow', 'OpenCV', 'STM X-CUBE-AI'],
   },
 ] as const satisfies readonly ExperienceEntry[]

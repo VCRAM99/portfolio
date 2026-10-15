@@ -118,7 +118,7 @@ describe('Experience desktop', () => {
     expect(visibleCopies(quanto.summary)).toHaveLength(1)
   })
 
-  it('shows both McMaster roles and three accomplishments drawn from the data', async () => {
+  it('shows the McMaster role and three accomplishments drawn from the data', async () => {
     const user = userEvent.setup()
     render(<Experience />)
 
@@ -127,16 +127,12 @@ describe('Experience desktop', () => {
     const mcmaster = experience[3]
     const panel = details()
 
-    for (const role of mcmaster.roles) {
-      expect(panel.getByText(role.title)).toBeInTheDocument()
-      expect(panel.getByText(role.dates)).toBeInTheDocument()
-    }
-
+    expect(panel.getByText(mcmaster.roles[0].title)).toBeInTheDocument()
+    expect(panel.getByText(mcmaster.roles[0].dates)).toBeInTheDocument()
     expect(panel.getByText(mcmaster.summary)).toBeInTheDocument()
     expect(within(panel.getByRole('list', { name: 'Accomplishments' })).getAllByRole('listitem')).toHaveLength(3)
     expect(panel.getByText(mcmaster.roles[0].achievements[0])).toBeInTheDocument()
-    expect(panel.getByText(mcmaster.roles[1].achievements[0])).toBeInTheDocument()
-    expect(panel.queryByText(mcmaster.roles[1].achievements[2])).not.toBeInTheDocument()
+    expect(panel.getByText(mcmaster.roles[0].achievements[2])).toBeInTheDocument()
   })
 
   it('selects an employer from the keyboard', async () => {
