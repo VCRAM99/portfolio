@@ -25,7 +25,3 @@ Built with a focus on modern design, responsive interfaces, and polished user in
 - **Smooth Navigation & Animations** — Fixed navigation, active-section tracking, subtle transitions, and reduced-motion support.
 - **Professional Portfolio Sections** — Dedicated sections for experience, projects, education, and contact information.
 - **Direct Contact & Social Links** — Quick access to GitHub, LinkedIn, resume, and email.
-
-## Live Website
-
-Explore the completed portfolio at **[varunsr.com](https://varunsr.com)**.
