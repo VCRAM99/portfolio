@@ -5,6 +5,7 @@ My personal software engineering portfolio, designed and developed to showcase m
 Built with a focus on modern design, responsive interfaces, and polished user interactions.
 
 **[View Live Website →](https://varunsr.com)**
+![Website Preview](public/iportfolio-social-preview.jpg)
 
 ## Tech Stack
 
