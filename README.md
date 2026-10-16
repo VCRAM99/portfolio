@@ -1,75 +1,31 @@
-# React + TypeScript + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My personal software engineering portfolio, designed and developed to showcase my professional experience, technical skills, and projects across full-stack development, artificial intelligence, and machine learning.
 
-Currently, two official plugins are available:
+Built with a focus on modern design, responsive interfaces, and polished user interactions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**[View Live Website →](https://varunsr.com)**
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** React, TypeScript, HTML5, CSS3
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+- **Typography:** Inter, Instrument Serif
+- **Icons:** Lucide React
+- **Testing:** Vitest, React Testing Library
+- **Deployment:** Live at [varunsr.com](https://varunsr.com)
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Responsive Design** — Layouts and navigation optimized for desktop and mobile devices.
+- **Dark & Light Themes** — Monochrome visual design with system, light, and dark theme options.
+- **Interactive Experience Section** — Professional experience cards with expandable details and employer branding.
+- **Featured Project Showcase** — Interactive presentation of the featured project with desktop and mobile previews.
+- **Smooth Navigation & Animations** — Fixed navigation, active-section tracking, subtle transitions, and reduced-motion support.
+- **Professional Portfolio Sections** — Dedicated sections for experience, projects, education, and contact information.
+- **Direct Contact & Social Links** — Quick access to GitHub, LinkedIn, resume, and email.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Live Website
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+Explore the completed portfolio at **[varunsr.com](https://varunsr.com)**.
